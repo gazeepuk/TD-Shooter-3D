@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Movement : MonoBehaviour, IMovable
+public class PlayerMovement : MonoBehaviour, IMovable
 {
     #region Attributes
     private PlayerController input;

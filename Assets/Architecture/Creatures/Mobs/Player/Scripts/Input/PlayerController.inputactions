@@ -24,61 +24,6 @@
             ],
             "bindings": [
                 {
-                    "name": "WASD",
-                    "id": "731aed42-e38f-4f8e-b9e9-a4715f3f9c28",
-                    "path": "2DVector",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "up",
-                    "id": "5d715c79-0ac0-4b28-9ab9-09bd53eadddd",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KM",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "a037a861-142b-4454-a204-666c4c72a11a",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KM",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "2f26471c-66cf-4b78-b3b2-57182e89c21f",
-                    "path": "<Keyboard>/a",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KM",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "68b3173a-1ad9-44d3-b1c4-9b5fb9a1a425",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KM",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
                     "name": "",
                     "id": "ba0c8e23-9438-4407-b82a-908cd74a4edf",
                     "path": "<Gamepad>/leftStick",
@@ -92,9 +37,9 @@
                 {
                     "name": "",
                     "id": "a7cc2c97-0d02-4b8c-87cc-e34b45af6b7c",
-                    "path": "<Mouse>/position",
+                    "path": "<Gamepad>/rightStick",
                     "interactions": "",
-                    "processors": "",
+                    "processors": "StickDeadzone",
                     "groups": "KM",
                     "action": "Aim",
                     "isComposite": false,
