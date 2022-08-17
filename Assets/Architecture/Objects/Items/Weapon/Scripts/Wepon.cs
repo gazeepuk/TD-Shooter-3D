@@ -4,48 +4,46 @@ using UnityEngine;
 
 public class Wepon : MonoBehaviour
 {
-    private PlayerController playerController;
+    [SerializeField] PlayerController playerController;
 
-    private Transform player; 
-
-    //Weapon stats
-    private int maxAmmo;
-    private int currentAmmo;
-    private float spread;
-    private float reloadTime;
-    private float timeBetweenBulletShot;
-    private float timeBetweenShots;
-    private int bulletsPerShot;
-
-    //Bullet stats
-    private float shootForce;
-    [SerializeField]
-    private GameObject bullet;
-
-
+    [SerializeField] private float maxAmmo, currentAmmo;
+    [SerializeField] private float ShootCD;
+    private bool isCanShoot = true;
+    private bool isCDPassed = true;
     private void Awake()
     {
-        player = gameObject.GetComponentInParent<Transform>();
         playerController = new PlayerController();
         currentAmmo = maxAmmo;
     }
 
     private void OnEnable()
     {
-        playerController.Player.Shoot.started += ctx => Shooting();
+        playerController.Enable();
+        playerController.Player.Shoot.performed += _ => Shoot();
     }
+
     private void OnDisable()
     {
-        playerController.Player.Shoot.started -= ctx => Shooting();
+        playerController.Disable();
+        playerController.Player.Shoot.performed -= _ => Shoot();
     }
 
-    private void Shooting()
+    private void Shoot()
     {
-    }
+        if (!IsCanShoot()) return;
+        //Take a bullet from a pool and Translate it
+        StartCoroutine(StartCD());
+    } 
 
-    private void Reload()
+    private bool IsCanShoot()
     {
-
+        return isCanShoot && isCDPassed ? true : false;
     }
 
+    IEnumerator StartCD()
+    {
+        isCDPassed = false;
+        yield return new WaitForSeconds(ShootCD);
+        isCDPassed = true;
+    }
 }

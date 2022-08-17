@@ -20,7 +20,7 @@ public class @PlayerController : IInputActionCollection, IDisposable
             ""actions"": [
                 {
                     ""name"": ""Movement"",
-                    ""type"": ""Value"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""9e53fa19-05fc-4263-af8a-5d65bf32e1dc"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
@@ -28,7 +28,7 @@ public class @PlayerController : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""Aim"",
-                    ""type"": ""Value"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""234d1be2-a355-4b69-97d9-3cbc18633c94"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
