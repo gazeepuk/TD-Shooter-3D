@@ -13,11 +13,14 @@ public class Weapon : MonoBehaviour
     private bool isCanShoot = true;
     private bool isCDPassed = true;
 
+    private Bullet bulletPrefab;
+
     #endregion
     #region Methods
     private void Awake()
     {
         currentAmmo = maxAmmo;
+        //Take Bullet From Resourses
     }
 
     public void Shooting()
@@ -43,5 +46,14 @@ public class Weapon : MonoBehaviour
         Debug.Log("Shoot");
         //Take a bullet from a pool and Translate it
     }
+
+
+    #region BulletsSpawn
+    private void Start()
+    {
+        
+    }
+
+    #endregion
     #endregion
 }
