@@ -4,13 +4,11 @@ using UnityEngine;
 public class ObjectPool<T> where T : MonoBehaviour
 {
     private T prefab;
-    private Transform container;
     private List<T> pool;
 
-    public ObjectPool(T prefab, Transform container, int size)
+    public ObjectPool(T prefab, int size)
     {
         this.prefab = prefab;
-        this.container = container;
         CreatePool(size);
     }
 
@@ -25,7 +23,7 @@ public class ObjectPool<T> where T : MonoBehaviour
 
     private T CreateObject(bool isActiveByDefault = false)
     {
-        var createdObject = Object.Instantiate(prefab, container);
+        var createdObject = Object.Instantiate(prefab);
         createdObject.gameObject.SetActive(isActiveByDefault);
         pool.Add(createdObject);
         return createdObject;
@@ -60,6 +58,6 @@ public class ObjectPool<T> where T : MonoBehaviour
 
     public T GetFreeElement()
     {
-        return HasFreeElement(out var element) ? element : throw new System.Exception("There is no free element in the pool");
+        return HasFreeElement(out var element) ? element : CreateObject(true);
     }
 }

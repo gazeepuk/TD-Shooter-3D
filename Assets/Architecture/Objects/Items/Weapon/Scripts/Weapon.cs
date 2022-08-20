@@ -5,24 +5,48 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     #region Attributes
-    protected virtual float maxAmmo { get { return 10; } }
-    protected virtual float currentAmmo { get; private set; }
+    private BoxCollider boxCollider;
 
-    protected virtual float ShootCD { get { return 0.5f; } }
+    public int MaxAmmo { get; private set; }
+    public float CurrentAmmo { get; private set; }
+    public float ShootCD { get; private set; }
+    public float ShootForce { get; private set; }
 
     private bool isCanShoot = true;
     private bool isCDPassed = true;
 
     private Bullet bulletPrefab;
 
+    [SerializeField]
+    private WeaponScriptableObject weaponScriptableObject;
+
+    protected ObjectPool<Bullet> bulletPool;
+
+    protected Vector3 bulletSpawnerPosition;
+
     #endregion
+
     #region Methods
-    private void Awake()
+    private void InitializeWeapon()
     {
-        currentAmmo = maxAmmo;
-        //Take Bullet From Resourses
+        MaxAmmo = weaponScriptableObject.maxAmmo;
+        bulletPrefab = weaponScriptableObject.bulletPrefab;
+        ShootCD = weaponScriptableObject.ShootCD;
+        ShootForce = weaponScriptableObject.ShootSpeed;
     }
 
+    private void Awake()
+    {
+        InitializeWeapon();
+        boxCollider = GetComponent<BoxCollider>();
+        CurrentAmmo = MaxAmmo;
+        bulletPool = new ObjectPool<Bullet>(bulletPrefab,30);
+    }
+    private void Update()
+    {
+        bulletSpawnerPosition = new Vector3(transform.position.x, transform.position.y, boxCollider.bounds.center.z + boxCollider.bounds.extents.z);
+
+    }
     public void Shooting()
     {
         if (!IsCanShoot()) return;
@@ -43,17 +67,7 @@ public class Weapon : MonoBehaviour
     }
     protected virtual void Shoot()
     {
-        Debug.Log("Shoot");
-        //Take a bullet from a pool and Translate it
+        Debug.Log($"Shoot");
     }
-
-
-    #region BulletsSpawn
-    private void Start()
-    {
-        
-    }
-
-    #endregion
     #endregion
 }
