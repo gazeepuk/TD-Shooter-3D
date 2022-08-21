@@ -15,4 +15,4 @@ MonoBehaviour:
   bulletPrefab: {fileID: 7534209989853396284, guid: d3603951dc8926343bb643128a1ba82c, type: 3}
   maxAmmo: 10
   ShootCD: 0.5
-  ShootSpeed: 5
+  ShootSpeed: 8

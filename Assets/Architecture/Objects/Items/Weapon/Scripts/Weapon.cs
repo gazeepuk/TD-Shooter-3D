@@ -42,11 +42,6 @@ public class Weapon : MonoBehaviour
         CurrentAmmo = MaxAmmo;
         bulletPool = new ObjectPool<Bullet>(bulletPrefab,30);
     }
-    private void Update()
-    {
-        bulletSpawnerPosition = new Vector3(transform.position.x, transform.position.y, boxCollider.bounds.center.z + boxCollider.bounds.extents.z);
-
-    }
     public void Shooting()
     {
         if (!IsCanShoot()) return;
@@ -69,5 +64,6 @@ public class Weapon : MonoBehaviour
     {
         Debug.Log($"Shoot");
     }
+    protected Vector3 GetBulletSpawnPosition() => new Vector3(transform.position.x, transform.position.y, boxCollider.bounds.center.z + boxCollider.bounds.extents.z);
     #endregion
 }
