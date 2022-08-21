@@ -7,6 +7,8 @@ public class WeaponScriptableObject : ScriptableObject
 {
     public Bullet bulletPrefab;
     public int maxAmmo;
-    public float ShootCD;
-    public float ShootSpeed;
+    public float ShotCD;
+    public float ShotForce;
+    public float ReloadCD;
+    public int BulletsPerShoot;
 }

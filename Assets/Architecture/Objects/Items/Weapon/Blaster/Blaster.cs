@@ -6,10 +6,11 @@ public class Blaster : Weapon
 {
     protected override void Shoot()
     {
+        base.Shoot();
         var bullet = bulletPool.GetFreeElement();
         bullet.transform.position = GetBulletSpawnPosition();
         bullet.transform.rotation = transform.rotation;
-        bullet.GetComponent<Rigidbody>().AddForce(transform.forward * ShootForce, ForceMode.Impulse);
+        bullet.GetComponent<Rigidbody>().AddForce(transform.forward * ShotForce, ForceMode.Impulse);
     }
 
 }
