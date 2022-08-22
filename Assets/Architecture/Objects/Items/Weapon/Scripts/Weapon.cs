@@ -48,7 +48,7 @@ public class Weapon : MonoBehaviour
         bulletSpawnerPosition = new GameObject().transform;
         bulletSpawnerPosition.name = "BulletSpawner";
         bulletSpawnerPosition.parent = transform;
-        bulletSpawnerPosition.position = new Vector3(transform.position.x, transform.position.y, boxCollider.bounds.center.z + boxCollider.bounds.extents.z + 0.1f);
+        bulletSpawnerPosition.position = new Vector3(transform.position.x, transform.position.y, boxCollider.bounds.center.z + boxCollider.bounds.extents.z + 0.03f);
         bulletSpawnerPosition.rotation = Quaternion.identity;
         bulletPoolContainer = new GameObject().transform;
         bulletPoolContainer.name = "Bullets Pool Container";

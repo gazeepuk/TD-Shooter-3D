@@ -13,9 +13,4 @@ public class Bullet : MonoBehaviour
         yield return new WaitForSeconds(5f);
         gameObject.SetActive(false);
     }
-
-    private void OnDisable()
-    {
-        GetComponent<Rigidbody>().velocity = Vector3.zero;
-    }
 }
