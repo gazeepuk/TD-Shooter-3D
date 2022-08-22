@@ -10,7 +10,12 @@ public class Bullet : MonoBehaviour
 
     private IEnumerator SetBulletDisable()
     {
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(5f);
         gameObject.SetActive(false);
+    }
+
+    private void OnDisable()
+    {
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
     }
 }

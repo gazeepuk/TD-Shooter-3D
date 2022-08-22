@@ -30,8 +30,8 @@ public class PlayerRotation : MonoBehaviour
     private void RotatePlayer()
     {
         Vector2 aim = input.Player.Aim.ReadValue<Vector2>();
-        Vector3 playerDirection = Vector3.right * aim.x + Vector3.forward * aim.y;
-        if (playerDirection.sqrMagnitude > 0.0f)
+        Vector3 playerDirection = new Vector3(aim.x, 0, aim.y);
+        if (playerDirection.sqrMagnitude > 0.1f)
         {
             Quaternion newRotation = Quaternion.LookRotation(playerDirection, Vector3.up);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, newRotation, rotateSmooth * Time.fixedDeltaTime);

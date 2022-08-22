@@ -18,15 +18,15 @@ public class Weapon : MonoBehaviour
     private bool isCDPassed = true;
     private bool isReloading = false;
 
-    private Bullet bulletPrefab;
+    protected Bullet bulletPrefab;
 
     [SerializeField]
     private WeaponScriptableObject weaponScriptableObject;
 
     protected ObjectPool<Bullet> bulletPool;
 
-    protected Vector3 bulletSpawnerPosition;
-
+    protected Transform bulletSpawnerPosition;
+    private Transform bulletPoolContainer;
     #endregion
 
     #region Methods
@@ -45,7 +45,14 @@ public class Weapon : MonoBehaviour
         InitializeWeapon();
         boxCollider = GetComponent<BoxCollider>();
         CurrentAmmo = MaxAmmo;
-        bulletPool = new ObjectPool<Bullet>(bulletPrefab,30);
+        bulletSpawnerPosition = new GameObject().transform;
+        bulletSpawnerPosition.name = "BulletSpawner";
+        bulletSpawnerPosition.parent = transform;
+        bulletSpawnerPosition.position = new Vector3(transform.position.x, transform.position.y, boxCollider.bounds.center.z + boxCollider.bounds.extents.z + 0.1f);
+        bulletSpawnerPosition.rotation = Quaternion.identity;
+        bulletPoolContainer = new GameObject().transform;
+        bulletPoolContainer.name = "Bullets Pool Container";
+        bulletPool = new ObjectPool<Bullet>(bulletPrefab,30, bulletPoolContainer);
     }
 
     public void Shooting()
