@@ -11,7 +11,8 @@
                     "id": "9e53fa19-05fc-4263-af8a-5d65bf32e1dc",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Aim",
@@ -19,15 +20,17 @@
                     "id": "234d1be2-a355-4b69-97d9-3cbc18633c94",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Shoot",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "91caec44-59d2-40d3-8cec-44c687ecbadf",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -44,17 +47,6 @@
                 },
                 {
                     "name": "",
-                    "id": "a7cc2c97-0d02-4b8c-87cc-e34b45af6b7c",
-                    "path": "<Gamepad>/rightStick",
-                    "interactions": "",
-                    "processors": "StickDeadzone",
-                    "groups": "KM",
-                    "action": "Aim",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "797ae139-4fd8-4de7-ab82-bab8d867265b",
                     "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
@@ -63,16 +55,22 @@
                     "action": "Shoot",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7898e3a5-0850-4372-8e44-4169f343cb99",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Aim",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
     ],
     "controlSchemes": [
-        {
-            "name": "KM",
-            "bindingGroup": "KM",
-            "devices": []
-        },
         {
             "name": "Gamepad",
             "bindingGroup": "Gamepad",
