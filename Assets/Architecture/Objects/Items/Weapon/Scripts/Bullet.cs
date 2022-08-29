@@ -7,10 +7,6 @@ public class Bullet : MonoBehaviour
         GetComponent<Rigidbody>().isKinematic = false;
         StartCoroutine(SetBulletDisable());
     }
-    private void Update()
-    {
-        Debug.Log(GetComponent<Rigidbody>().velocity);
-    }
 
     private IEnumerator SetBulletDisable()
     {
