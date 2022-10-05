@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Blaster : Weapon
 {
+    public Blaster(WeaponScriptableObject weaponScriptableObject) : base(weaponScriptableObject) { }
     protected override void Shoot()
     {
         base.Shoot();

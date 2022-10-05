@@ -15,12 +15,12 @@ public class PlayerShooting : MonoBehaviour
     private void OnEnable()
     {
         playerController.Enable();
-        playerController.Player.Shoot.performed += _ => weapon?.Shooting();
+        playerController.Player.Shoot.started += _ => weapon?.Shooting();
     }
 
     private void OnDisable()
     {
         playerController.Disable();
-        playerController.Player.Shoot.performed -= _ => weapon?.Shooting();
+        playerController.Player.Shoot.started -= _ => weapon?.Shooting();
     }
 }

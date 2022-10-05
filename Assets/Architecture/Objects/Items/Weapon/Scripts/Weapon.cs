@@ -2,23 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Weapon : MonoBehaviour
+[RequireComponent(typeof(BoxCollider))]
+public abstract class Weapon : MonoBehaviour
 {
 
     #region Attributes
     private BoxCollider boxCollider;
 
+
+    // In WeaponScriptableObject
     public int MaxAmmo { get; private set; }
     public float CurrentAmmo { get; private set; }
     public float ShotCD { get; private set; }
     public float ShotForce { get; private set; }
     public float ReloadCD { get; private set; }
     public int BulletsPerShot { get; private set; }
+
+    private Bullet bulletPrefab;
+
     private bool isCanShoot = true;
     private bool isCDPassed = true;
     private bool isReloading = false;
 
-    private Bullet bulletPrefab;
 
     [SerializeField]
     private WeaponScriptableObject weaponScriptableObject;
@@ -30,7 +35,13 @@ public class Weapon : MonoBehaviour
     #endregion
 
     #region Methods
-    private void InitializeWeapon()
+    public Weapon(WeaponScriptableObject weaponScriptableObject)
+    {
+        this.weaponScriptableObject = weaponScriptableObject;
+        InitializeWeapon(weaponScriptableObject);
+    }
+
+    private void InitializeWeapon(WeaponScriptableObject weaponScriptableObject)
     {
         MaxAmmo = weaponScriptableObject.maxAmmo;
         bulletPrefab = weaponScriptableObject.bulletPrefab;
@@ -38,13 +49,18 @@ public class Weapon : MonoBehaviour
         ShotForce = weaponScriptableObject.ShotForce;
         ReloadCD = weaponScriptableObject.ReloadCD;
         BulletsPerShot = weaponScriptableObject.BulletsPerShoot;
+        boxCollider = GetComponent<BoxCollider>();
     }
 
     private void Awake()
     {
-        InitializeWeapon();
-        boxCollider = GetComponent<BoxCollider>();
-        CurrentAmmo = MaxAmmo;
+        if (weaponScriptableObject == null)
+            throw new System.Exception("WeaponScriptableObject is null");
+        else
+        {
+            InitializeWeapon(weaponScriptableObject);
+            CurrentAmmo = MaxAmmo;
+        }
         bulletPool = new ObjectPool<Bullet>(bulletPrefab,30);
     }
 
@@ -91,8 +107,10 @@ public class Weapon : MonoBehaviour
 
     protected virtual void Shoot()
     {
-        CurrentAmmo -= BulletsPerShot;
+        CurrentAmmo -= BulletsPerShot; 
     }
-    protected Vector3 GetBulletSpawnPosition() => new Vector3(transform.position.x, transform.position.y, boxCollider.bounds.center.z + boxCollider.bounds.extents.z);
+    public Vector3 GetBulletSpawnPosition() => new Vector3(transform.position.x, transform.position.y,
+        boxCollider.bounds.center.z + boxCollider.bounds.extents.z);
+
     #endregion
 }
