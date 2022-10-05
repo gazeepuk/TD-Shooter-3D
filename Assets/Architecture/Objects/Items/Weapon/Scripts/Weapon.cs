@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider))]
-public abstract class Weapon : MonoBehaviour
+public class Weapon : MonoBehaviour
 {
 
     #region Attributes
@@ -60,7 +60,7 @@ public abstract class Weapon : MonoBehaviour
             InitializeWeapon(weaponScriptableObject);
             CurrentAmmo = MaxAmmo;
         }
-        bulletPool = new ObjectPool<Bullet>(bulletPrefab,30);
+        bulletPool = new ObjectPool<Bullet>(bulletPrefab,30,new GameObject("BulletPool").transform);
     }
 
     public void Shooting()

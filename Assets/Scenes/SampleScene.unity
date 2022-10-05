@@ -446,7 +446,6 @@ GameObject:
   - component: {fileID: 1287277745}
   - component: {fileID: 1287277744}
   - component: {fileID: 1287277743}
-  - component: {fileID: 1287277748}
   - component: {fileID: 1287277747}
   m_Layer: 0
   m_Name: Weapon
@@ -542,22 +541,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1287277742}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1e2fc7b40cc6e84891edb2e0ea93c52, type: 3}
+  m_Script: {fileID: 11500000, guid: 7c900d56d75d61547a462022959ceca9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   weaponScriptableObject: {fileID: 11400000, guid: efeec1d2cb080204cb34c517d59adcd5, type: 2}
---- !u!114 &1287277748
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1287277742}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0724620c2eac8e4f9667cf5a253fa50, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1418007074
 GameObject:
   m_ObjectHideFlags: 3

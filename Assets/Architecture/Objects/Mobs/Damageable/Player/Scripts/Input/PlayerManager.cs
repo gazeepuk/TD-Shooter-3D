@@ -14,6 +14,7 @@ public class PlayerManager : MonoBehaviour
 
     private void FixedUpdate()
     {
+        Debug.Log(inputManager.MousePosition);
         var moveDirection = new Vector3(inputManager.HorizontalInput, inputManager.VerticalInput);
         playerMovementHandler.HandleAllMovements(moveDirection, inputManager.MousePosition);
     }

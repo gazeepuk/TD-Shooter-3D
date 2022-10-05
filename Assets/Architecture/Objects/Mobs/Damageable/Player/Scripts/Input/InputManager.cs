@@ -18,7 +18,7 @@ public class InputManager : MonoBehaviour
     private void OnEnable()
     {
         input.Player.Movement.performed += ctx => inputDirection = ctx.ReadValue<Vector2>();
-        input.Player.Aim.performed += ctx => MousePosition = ctx.ReadValue<Vector2>();
+        input.Player.Aim.performed += ctx => Debug.Log(ctx.ReadValue<Vector2>());
     }
 
     private void OnDisable()
