@@ -25,7 +25,7 @@
                 },
                 {
                     "name": "Shoot",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "91caec44-59d2-40d3-8cec-44c687ecbadf",
                     "expectedControlType": "Button",
                     "processors": "",
@@ -148,11 +148,6 @@
         }
     ],
     "controlSchemes": [
-        {
-            "name": "KM",
-            "bindingGroup": "KM",
-            "devices": []
-        },
         {
             "name": "Gamepad",
             "bindingGroup": "Gamepad",

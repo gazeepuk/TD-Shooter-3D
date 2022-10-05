@@ -5,10 +5,12 @@ public class ObjectPool<T> where T : MonoBehaviour
 {
     private T prefab;
     private List<T> pool;
+    public Transform container { get; }
 
-    public ObjectPool(T prefab, int size)
+    public ObjectPool(T prefab, int size, Transform container)
     {
         this.prefab = prefab;
+        this.container = container;
         CreatePool(size);
     }
 
@@ -23,7 +25,7 @@ public class ObjectPool<T> where T : MonoBehaviour
 
     private T CreateObject(bool isActiveByDefault = false)
     {
-        var createdObject = Object.Instantiate(prefab);
+        var createdObject = Object.Instantiate(prefab, container);
         createdObject.gameObject.SetActive(isActiveByDefault);
         pool.Add(createdObject);
         return createdObject;

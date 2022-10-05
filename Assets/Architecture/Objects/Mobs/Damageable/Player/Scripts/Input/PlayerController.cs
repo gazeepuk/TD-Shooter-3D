@@ -47,7 +47,7 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Shoot"",
-                    ""type"": ""Button"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""91caec44-59d2-40d3-8cec-44c687ecbadf"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
@@ -171,11 +171,6 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
     ],
     ""controlSchemes"": [
         {
-            ""name"": ""KM"",
-            ""bindingGroup"": ""KM"",
-            ""devices"": []
-        },
-        {
             ""name"": ""Gamepad"",
             ""bindingGroup"": ""Gamepad"",
             ""devices"": []
@@ -291,15 +286,6 @@ public partial class @PlayerController : IInputActionCollection2, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
-    private int m_KMSchemeIndex = -1;
-    public InputControlScheme KMScheme
-    {
-        get
-        {
-            if (m_KMSchemeIndex == -1) m_KMSchemeIndex = asset.FindControlSchemeIndex("KM");
-            return asset.controlSchemes[m_KMSchemeIndex];
-        }
-    }
     private int m_GamepadSchemeIndex = -1;
     public InputControlScheme GamepadScheme
     {

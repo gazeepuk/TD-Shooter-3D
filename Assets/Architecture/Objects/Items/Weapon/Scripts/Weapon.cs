@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider))]
@@ -30,8 +29,8 @@ public abstract class Weapon : MonoBehaviour
 
     protected ObjectPool<Bullet> bulletPool;
 
-    protected Vector3 bulletSpawnerPosition;
-
+    protected Transform bulletSpawnerPosition;
+    private Transform bulletPoolContainer;
     #endregion
 
     #region Methods

@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: BlasterScriptable
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 7534209989853396284, guid: d3603951dc8926343bb643128a1ba82c, type: 3}
-  maxAmmo: 10
-  ShootCD: 0.5
-  ShootSpeed: 8
+  maxAmmo: 30
+  ShotCD: 0.4
+  ShotForce: 8
+  ReloadCD: 3
+  BulletsPerShoot: 1

@@ -9,9 +9,11 @@ public class Blaster : Weapon
     {
         base.Shoot();
         var bullet = bulletPool.GetFreeElement();
-        bullet.transform.position = GetBulletSpawnPosition();
-        bullet.transform.rotation = transform.rotation;
-        bullet.GetComponent<Rigidbody>().AddForce(transform.forward * ShotForce, ForceMode.Impulse);
+        //var bullet = Instantiate(bulletPrefab);
+        bullet.transform.position = bulletSpawnerPosition.position;
+        bullet.transform.rotation = bulletSpawnerPosition.rotation;
+        bullet.GetComponent<Rigidbody>().velocity = transform.forward * ShotForce;
+
     }
 
 }
