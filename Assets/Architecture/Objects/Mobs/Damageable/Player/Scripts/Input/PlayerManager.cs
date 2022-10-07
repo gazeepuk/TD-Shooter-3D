@@ -9,8 +9,7 @@ public class PlayerManager : MonoBehaviour
     private PlayerAllMovementHandler playerMovementHandler;
     private PlayerAttack playerAttack;
 
-    [SerializeField]
-    private WeaponScriptableObject weaponScriptableObject;
+
     private void Awake()
     {
         inputManager = gameObject.AddComponent<InputManager>();

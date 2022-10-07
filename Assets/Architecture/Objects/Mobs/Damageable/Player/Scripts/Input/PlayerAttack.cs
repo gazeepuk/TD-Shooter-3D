@@ -10,22 +10,22 @@ public class PlayerAttack : MonoBehaviour
     {
         weaponBoxCollider = GetComponentInChildren<BoxCollider>();
         weaponScriptableObject = Resources.Load<WeaponScriptableObject>("WeaponScriptableObjects/BlasterScriptable");
-        Weapon weapon = new Blaster(weaponScriptableObject, weaponBoxCollider);
+        weapon = transform.GetChild(0).gameObject.AddComponent<Blaster>();
+        weapon.UpdateWeapon(weaponScriptableObject, weaponBoxCollider);
     }
 
     private void OnEnable()
     {
-        InputManager.OnShootPressedEvent += Attack;
+        InputManager.Instance.OnShootPressedEvent += Attack;
     }
 
     private void OnDisable()
     {
-        InputManager.OnShootPressedEvent -= Attack;
+        InputManager.Instance.OnShootPressedEvent -= Attack;
     }
     public void Attack()
     {
         weapon.Attack();
-        Debug.Log("Player Attack");
     }
 
     public void SetWeapon(Weapon newWeapon)

@@ -31,9 +31,6 @@ public abstract class Gun : Weapon
     #endregion
 
     #region Methods
-    public Gun(WeaponScriptableObject weaponScriptableObject, BoxCollider boxCollider) : base(weaponScriptableObject, boxCollider)
-    {
-    }
 
     protected override void InitializeWeapon(WeaponScriptableObject weaponScriptableObject)
     {

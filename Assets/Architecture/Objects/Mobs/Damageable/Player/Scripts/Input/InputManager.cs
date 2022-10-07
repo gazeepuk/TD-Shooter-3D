@@ -7,7 +7,9 @@ public class InputManager : MonoBehaviour
 {
     private PlayerController input;
 
-    public static event Action OnShootPressedEvent;
+    public static InputManager Instance;
+
+    public event Action OnShootPressedEvent;
     public float HorizontalInput { get; private set; }
     public float VerticalInput { get; private set; }
 
@@ -16,6 +18,11 @@ public class InputManager : MonoBehaviour
     private void Awake()
     {
         input = new PlayerController();
+
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
     }
     private void OnEnable()
     {
