@@ -62,4 +62,14 @@ public class ObjectPool<T> where T : MonoBehaviour
     {
         return HasFreeElement(out var element) ? element : CreateObject(true);
     }
+
+    public void UpdatePrefab(T newPrefab)
+    {
+        for (int i = 0; i < pool.Count; i++)
+        {
+            var newBullet = GameObject.Instantiate(newPrefab, container);
+            newBullet.gameObject.SetActive(false);
+            pool[i] = newBullet;
+        }
+    }
 }

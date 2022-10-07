@@ -7,6 +7,16 @@ public class PlayerManager : MonoBehaviour
 {
     private InputManager inputManager;
     private PlayerAllMovementHandler playerMovementHandler;
+    private PlayerAttack playerAttack;
+
+    [SerializeField]
+    private WeaponScriptableObject weaponScriptableObject;
+    private void Awake()
+    {
+        inputManager = gameObject.AddComponent<InputManager>();
+        playerMovementHandler = gameObject.AddComponent<PlayerAllMovementHandler>();
+        playerAttack = gameObject.AddComponent<PlayerAttack>();
+    }
     private void Update()
     {
         inputManager.HandleAllInputs();
@@ -14,7 +24,6 @@ public class PlayerManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Debug.Log(inputManager.MousePosition);
         var moveDirection = new Vector3(inputManager.HorizontalInput, inputManager.VerticalInput);
         playerMovementHandler.HandleAllMovements(moveDirection, inputManager.MousePosition);
     }

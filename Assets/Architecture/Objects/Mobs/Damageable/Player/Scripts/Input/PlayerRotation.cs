@@ -19,6 +19,8 @@ public class PlayerRotation : MonoBehaviour
             transform.LookAt(lookPoint);
         }
         /*
+         * 
+         *    GamePad
         Vector2 aim = input.Player.Aim.ReadValue<Vector2>();
         Vector3 playerDirection = new Vector3(aim.x, 0, aim.y);
         if (playerDirection.sqrMagnitude > 0.1f)
