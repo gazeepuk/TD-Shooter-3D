@@ -21,40 +21,34 @@ public abstract class Gun : Weapon
     private bool isReloading = false;
 
 
+    private BoxCollider boxCollider;
 
     protected ObjectPool<Bullet> bulletPool;
 
     protected Transform bulletSpawnerPosition;
 
-    private Transform bulletPoolContainer;
-
     #endregion
 
     #region Methods
 
-    protected override void InitializeWeapon(WeaponScriptableObject weaponScriptableObject)
+    protected override void InitializeWeapon()
     {
-        MaxAmmo = weaponScriptableObject.maxAmmo;
-        bulletPrefab = weaponScriptableObject.bulletPrefab;
-        ShotCD = weaponScriptableObject.ShotCD;
-        ShotForce = weaponScriptableObject.ShotForce;
-        ReloadCD = weaponScriptableObject.ReloadCD;
-        BulletsPerShot = weaponScriptableObject.BulletsPerShoot;
+        Debug.Log("Juicy");
+        boxCollider = GetComponent<BoxCollider>();
+        GunScriptableObject gunScriptableObject = weaponScriptableObject as GunScriptableObject;
+        MaxAmmo = gunScriptableObject.maxAmmo;
+        bulletPrefab = gunScriptableObject.bulletPrefab;
+        ShotCD = gunScriptableObject.ShotCD;
+        ShotForce = gunScriptableObject.ShotForce;
+        ReloadCD = gunScriptableObject.ReloadCD;
+        BulletsPerShot = gunScriptableObject.BulletsPerShot;
+        CurrentAmmo = MaxAmmo;
+        bulletPool = BulletPool.Instance.pool;
     }
 
-    private void Awake()
+    protected override void Awake()
     {
-        if (weaponScriptableObject == null)
-            throw new System.Exception("WeaponScriptableObject is null");
-        else
-        {
-            InitializeWeapon(weaponScriptableObject);
-            CurrentAmmo = MaxAmmo;
-        }
-        if (bulletPoolContainer == null)
-            throw new System.Exception("There is no container founded");
-        bulletPool = BulletPool.pool;
-        
+        base.Awake();
     }
 
     public override void Attack()

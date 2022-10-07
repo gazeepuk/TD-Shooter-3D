@@ -4,18 +4,26 @@ public abstract class Weapon : MonoBehaviour
 {
 
     #region Attributes
-    protected BoxCollider boxCollider;
-    public WeaponScriptableObject weaponScriptableObject;
+
+    [SerializeField]
+    private GameObject weaponPrefab;
+    [SerializeField]
+    protected WeaponScriptableObject weaponScriptableObject;
+
+    protected BoxCollider weaponBoxCollider;
+
     #endregion
 
     #region Methods
-
-    protected virtual void InitializeWeapon(WeaponScriptableObject weaponScriptableObject) { }
-    public virtual void Attack() { }
-    public void UpdateWeapon(WeaponScriptableObject weaponScriptableObject, BoxCollider boxCollider)
+    protected virtual void Awake()
     {
-        this.weaponScriptableObject = weaponScriptableObject;
-        InitializeWeapon(weaponScriptableObject);
+        InitializeWeapon();
+    }
+    protected abstract void InitializeWeapon();
+    public abstract void Attack();
+    public void UpdateWeapon(WeaponScriptableObject weaponScriptableObject ,Weapon newWeapon)
+    {
+        InitializeWeapon();
     }
     #endregion
 }

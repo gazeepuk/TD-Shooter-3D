@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5334408a27b4394d8efc0b86060a01c, type: 3}
+  m_Name: BlasterScriptableObject
+  m_EditorClassIdentifier: 
+  weapomModel: {fileID: 4467195772613600654, guid: d3603951dc8926343bb643128a1ba82c, type: 3}
+  maxAmmo: 6
+  bulletPrefab: {fileID: 0}
+  ShotCD: 4
+  ShotForce: 4
+  ReloadCD: 4
+  BulletsPerShot: 1

@@ -3,15 +3,10 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     private Weapon weapon;
-    private WeaponScriptableObject weaponScriptableObject;
-    private BoxCollider weaponBoxCollider;
 
     private void Awake()
     {
-        weaponBoxCollider = GetComponentInChildren<BoxCollider>();
-        weaponScriptableObject = Resources.Load<WeaponScriptableObject>("WeaponScriptableObjects/BlasterScriptable");
-        weapon = transform.GetChild(0).gameObject.AddComponent<Blaster>();
-        weapon.UpdateWeapon(weaponScriptableObject, weaponBoxCollider);
+        weapon = GetComponentInChildren<Weapon>();
     }
 
     private void OnEnable()
