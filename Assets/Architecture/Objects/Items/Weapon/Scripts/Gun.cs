@@ -33,7 +33,6 @@ public abstract class Gun : Weapon
 
     protected override void InitializeWeapon()
     {
-        Debug.Log("Juicy");
         boxCollider = GetComponent<BoxCollider>();
         GunScriptableObject gunScriptableObject = weaponScriptableObject as GunScriptableObject;
         MaxAmmo = gunScriptableObject.maxAmmo;
@@ -42,8 +41,13 @@ public abstract class Gun : Weapon
         ShotForce = gunScriptableObject.ShotForce;
         ReloadCD = gunScriptableObject.ReloadCD;
         BulletsPerShot = gunScriptableObject.BulletsPerShot;
+        bulletPrefab = gunScriptableObject.bulletPrefab;
         CurrentAmmo = MaxAmmo;
         bulletPool = BulletPool.Instance.pool;
+        bulletSpawnerPosition = new GameObject("BulletSpawner").transform;
+        bulletSpawnerPosition.SetParent(transform);
+        bulletSpawnerPosition.position = GetBulletSpawnPosition();
+        bulletSpawnerPosition.rotation = transform.rotation;
     }
 
     protected override void Awake()
@@ -57,7 +61,8 @@ public abstract class Gun : Weapon
     }
     private void Shooting()
     {
-        if (!IsCanShoot()) return;
+        if (!IsCanShoot())
+            return;
         Shoot();
         StartCoroutine(StartShootingCD());
     }

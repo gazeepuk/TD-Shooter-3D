@@ -29,13 +29,16 @@ public class InputManager : MonoBehaviour
         input.Enable();
         input.Player.Movement.performed += ctx => inputDirection = ctx.ReadValue<Vector2>();
         input.Player.Aim.performed += HandleMousePositionInput;
-    }
+        input.Player.Attack.performed += _ => OnShootPressed();
+        input.Player.Attack.performed += _ => Debug.Log("Performed");
+      }
 
     private void OnDisable()
     {
         input.Disable();
         input.Player.Movement.performed -= ctx => inputDirection = ctx.ReadValue<Vector2>();
         input.Player.Aim.performed -= HandleMousePositionInput;
+        input.Player.Attack.performed -= _ => OnShootPressed();
     }
 
     public void OnShootPressed()

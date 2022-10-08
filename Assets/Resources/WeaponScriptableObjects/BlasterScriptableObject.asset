@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: BlasterScriptableObject
   m_EditorClassIdentifier: 
   weapomModel: {fileID: 4467195772613600654, guid: d3603951dc8926343bb643128a1ba82c, type: 3}
-  maxAmmo: 6
-  bulletPrefab: {fileID: 0}
-  ShotCD: 4
-  ShotForce: 4
-  ReloadCD: 4
+  maxAmmo: 30
+  bulletPrefab: {fileID: 7534209989853396284, guid: d3603951dc8926343bb643128a1ba82c, type: 3}
+  ShotCD: 0.5
+  ShotForce: 5
+  ReloadCD: 3
   BulletsPerShot: 1

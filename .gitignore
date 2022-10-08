@@ -17,6 +17,8 @@
 # Recordings can get excessive in size
 /[Rr]ecordings/
 
+# My files
+/[Aa]sets/Notes/
 # Uncomment this line if you wish to ignore the asset store tools plugin
 # /[Aa]ssets/AssetStoreTools*
 
@@ -46,6 +48,7 @@ ExportedObj/
 *.mdb
 *.opendb
 *.VC.db
+*.vsconfig
 
 # Unity3D generated meta files
 *.pidb.meta

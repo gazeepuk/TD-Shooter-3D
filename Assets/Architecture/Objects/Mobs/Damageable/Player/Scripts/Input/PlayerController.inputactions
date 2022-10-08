@@ -24,8 +24,8 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Shoot",
-                    "type": "Button",
+                    "name": "Attack",
+                    "type": "PassThrough",
                     "id": "91caec44-59d2-40d3-8cec-44c687ecbadf",
                     "expectedControlType": "Button",
                     "processors": "",
@@ -129,7 +129,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Shoot",
+                    "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -140,7 +140,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "KM;K&M",
-                    "action": "Shoot",
+                    "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
