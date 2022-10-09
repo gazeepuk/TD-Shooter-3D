@@ -3,14 +3,20 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour, IMovable
 {
     #region Attributes
-    [SerializeField] private float movementSpeed = 5f;
+    [SerializeField] 
+    private float movementSpeed = 5f;
+    [SerializeField]
+    private CharacterController characterController;
     #endregion
     #region Methods
+    private void Awake()
+    {
+        characterController = GetComponent<CharacterController>();
+    }
     public void Move(Vector2 direction)
     {
-        float speed = movementSpeed * Time.fixedDeltaTime;
         Vector3 moveDirection = new Vector3(direction.x, 0, direction.y);
-        transform.position += moveDirection * speed;
+        characterController.Move(moveDirection * movementSpeed * Time.fixedDeltaTime);
     }
     #endregion
 }

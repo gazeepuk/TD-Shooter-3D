@@ -9,18 +9,10 @@ public class PlayerAttack : MonoBehaviour
         weapon = GetComponentInChildren<Weapon>();
     }
 
-    private void OnEnable()
-    {
-        InputManager.Instance.OnShootPressedEvent += Attack;
-    }
-
-    private void OnDisable()
-    {
-        InputManager.Instance.OnShootPressedEvent -= Attack;
-    }
     public void Attack()
     {
-        weapon.Attack();
+        if(InputManager.Instance.IsLeftMouseButtonPressed)
+            weapon.Attack();
     }
 
     public void SetWeapon(Weapon newWeapon)

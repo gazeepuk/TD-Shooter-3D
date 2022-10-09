@@ -4,9 +4,6 @@ public abstract class Weapon : MonoBehaviour
 {
 
     #region Attributes
-
-    [SerializeField]
-    private GameObject weaponPrefab;
     [SerializeField]
     protected WeaponScriptableObject weaponScriptableObject;
 

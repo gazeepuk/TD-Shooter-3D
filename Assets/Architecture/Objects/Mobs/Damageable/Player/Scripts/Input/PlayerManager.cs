@@ -25,6 +25,7 @@ public class PlayerManager : MonoBehaviour
     {
         var moveDirection = new Vector3(inputManager.HorizontalInput, inputManager.VerticalInput);
         playerMovementHandler.HandleAllMovements(moveDirection, inputManager.MousePosition);
+        playerAttack.Attack();
     }
 
 }

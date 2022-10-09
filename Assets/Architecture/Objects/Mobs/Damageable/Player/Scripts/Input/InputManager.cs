@@ -9,12 +9,13 @@ public class InputManager : MonoBehaviour
 
     public static InputManager Instance;
 
-    public event Action OnShootPressedEvent;
     public float HorizontalInput { get; private set; }
     public float VerticalInput { get; private set; }
 
     private Vector2 inputDirection;
     public Vector2 MousePosition { get; private set; }
+
+    public bool IsLeftMouseButtonPressed => Mouse.current.leftButton.isPressed;
     private void Awake()
     {
         input = new PlayerController();
@@ -29,7 +30,6 @@ public class InputManager : MonoBehaviour
         input.Enable();
         input.Player.Movement.performed += ctx => inputDirection = ctx.ReadValue<Vector2>();
         input.Player.Aim.performed += HandleMousePositionInput;
-        input.Player.Attack.performed += _ => OnShootPressed();
         input.Player.Attack.performed += _ => Debug.Log("Performed");
       }
 
@@ -38,12 +38,6 @@ public class InputManager : MonoBehaviour
         input.Disable();
         input.Player.Movement.performed -= ctx => inputDirection = ctx.ReadValue<Vector2>();
         input.Player.Aim.performed -= HandleMousePositionInput;
-        input.Player.Attack.performed -= _ => OnShootPressed();
-    }
-
-    public void OnShootPressed()
-    {
-        OnShootPressedEvent?.Invoke();
     }
 
     public void HandleAllInputs()

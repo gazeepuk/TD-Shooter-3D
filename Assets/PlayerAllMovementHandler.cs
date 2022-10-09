@@ -8,7 +8,7 @@ public class PlayerAllMovementHandler : MonoBehaviour
     private PlayerRotation playerRotation;
     private void Awake()
     {
-        playerMovement = GetComponent<PlayerMovement>();
+        playerMovement = gameObject.AddComponent<PlayerMovement>();
         playerRotation = gameObject.AddComponent<PlayerRotation>();
     }
     public void HandleAllMovements(Vector2 moveDirection, Vector2 lookRotation)

@@ -69,6 +69,7 @@ public class ObjectPool<T> where T : MonoBehaviour
         {
             var newBullet = GameObject.Instantiate(newPrefab, container);
             newBullet.gameObject.SetActive(false);
+            GameObject.Destroy(pool[i]);
             pool[i] = newBullet;
         }
     }

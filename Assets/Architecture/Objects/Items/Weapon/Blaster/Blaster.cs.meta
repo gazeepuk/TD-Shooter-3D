@@ -4,7 +4,8 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - weaponScriptableObject: {fileID: 11400000, guid: efeec1d2cb080204cb34c517d59adcd5, type: 2}
+  - weaponPrefab: {instanceID: 0}
+  - weaponScriptableObject: {fileID: 11400000, guid: 1c42966ca89b8aa4391f44844b0abb21, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
