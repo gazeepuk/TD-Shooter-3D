@@ -17,7 +17,8 @@ public abstract class Weapon : MonoBehaviour
         InitializeWeapon();
     }
     protected abstract void InitializeWeapon();
-    public abstract void Attack();
+    public abstract void AttackPerformed();
+    public virtual void AttackCanceled() { }
     public void UpdateWeapon(WeaponScriptableObject weaponScriptableObject ,Weapon newWeapon)
     {
         InitializeWeapon();

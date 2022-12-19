@@ -16,10 +16,10 @@ public abstract class Gun : Weapon
 
     private Bullet bulletPrefab;
 
-    private bool isCanShoot = true;
+    public bool isCanShoot = true;
     private bool isCDPassed = true;
     private bool isReloading = false;
-
+    private bool isShooting = false;
 
     private BoxCollider boxCollider;
 
@@ -55,16 +55,26 @@ public abstract class Gun : Weapon
         base.Awake();
     }
 
-    public override void Attack()
+    public override void AttackPerformed()
     {
-        Shooting();
+        isShooting = true;
     }
-    private void Shooting()
+
+    private void Update()
     {
-        if (!IsCanShoot())
-            return;
-        Shoot();
-        StartCoroutine(StartShootingCD());
+        if (isShooting)
+        {
+            if (IsCanShoot())
+            {
+                Shoot();
+                StartCoroutine(StartShootingCD());
+            }
+        }
+    }
+
+    public override void AttackCanceled()
+    {
+        isShooting = false;
     }
 
     private void Reload()
@@ -104,7 +114,7 @@ public abstract class Gun : Weapon
     protected virtual void Shoot()
     {
         CurrentAmmo -= BulletsPerShot;
-        //Child class Shoot
+
     }
     public Vector3 GetBulletSpawnPosition() => new Vector3(transform.position.x, transform.position.y,
         boxCollider.bounds.center.z + boxCollider.bounds.extents.z);

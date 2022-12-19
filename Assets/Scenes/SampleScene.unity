@@ -652,8 +652,8 @@ GameObject:
   - component: {fileID: 1733879566}
   - component: {fileID: 1733879565}
   - component: {fileID: 1733879571}
-  - component: {fileID: 1733879572}
   - component: {fileID: 1733879573}
+  - component: {fileID: 1733879572}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -754,7 +754,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1733879562}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9763663472a17eb49948cebc6f6ea9ae, type: 3}
+  m_Script: {fileID: 11500000, guid: 97ac35662fdb65946a42acbfee2548b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1733879573
@@ -766,39 +766,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1733879562}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Script: {fileID: 11500000, guid: 57e7e4eb29346724e8d2e039f1cd166d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 90466bc416955e14589c59a869425e98, type: 3}
-  m_NotificationBehavior: 2
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 9e53fa19-05fc-4263-af8a-5d65bf32e1dc
-    m_ActionName: Player/Movement[/DualShock4GamepadHID/leftStick,/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 234d1be2-a355-4b69-97d9-3cbc18633c94
-    m_ActionName: Player/Aim[/DualShock4GamepadHID/rightStick,/Mouse/position]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 91caec44-59d2-40d3-8cec-44c687ecbadf
-    m_ActionName: Player/Attack[/DualShock4GamepadHID/rightTrigger,/Mouse/leftButton]
-  m_NeverAutoSwitchControlSchemes: 1
-  m_DefaultControlScheme: K&M
-  m_DefaultActionMap: Player
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 963194227}
 --- !u!1 &1940757391
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,7 +12,7 @@ public class PlayerAttack : MonoBehaviour
     public void Attack()
     {
         if(InputManager.Instance.IsLeftMouseButtonPressed)
-            weapon.Attack();
+            weapon.AttackPerformed();
     }
 
     public void SetWeapon(Weapon newWeapon)
